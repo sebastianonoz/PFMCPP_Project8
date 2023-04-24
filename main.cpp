@@ -56,12 +56,12 @@ your task:
 #include <algorithm>
 #include <cassert>
 
-#include "HighwayPatrol.h"
-#include "Highway.h"
-#include "Car.h"
-#include "Vehicle.h"
 #include "SemiTruck.h"
-#include "Motorcycle.h"
+#include "Vehicle.h"
+#include "Motorcycle.h" 
+#include "HighwayPatrol.h" 
+#include "Highway.h" 
+#include "Car.h"
 
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
@@ -76,6 +76,7 @@ your task:
 
  Wait for my code review.
  */
+
 
 int main()
 {
@@ -105,7 +106,6 @@ int main()
      the Vehicle class shows how to do this.
      
      You must implement these special member functions for all of the classes that derive from Vehicle.
-
      v-table warnings can be resolved by eliminating header file implementations.
      */
     
@@ -127,18 +127,39 @@ int main()
     /*
      construct 2 more Car instances via emplace_back.
      */
-    
+    cars.emplace_back("car1");
+    cars.emplace_back("car2");
+
     /*
      now reserve and emplace_back your Trucks and Motorcyles
      */
+
+    motorcycles.reserve(2);
+    motorcycles.emplace_back("mc1");
+    motorcycles.emplace_back("mc2");
+    
+    trucks.reserve(1);
+    trucks.emplace_back("GMC");
     
     
-    
-    
-    assert(false);
     //add the cars, motorcycles and trucks to the highway using range-based for() loops: for( element : vec ) { ... }
     //be careful to not accidentally make element copies when iterating.
+
+    for (auto& car : cars)
+    {
+        highway.addVehicle (&car);
+    }
     
+    for (auto& motorcycle : motorcycles)
+    {
+        highway.addVehicle (&motorcycle);
+    }
+    
+    for (auto& truck : trucks)
+    {
+        highway.addVehicle (&truck);
+    }
+
     HighwayPatrol cop;
     cop.scanHighway(&highway);
 

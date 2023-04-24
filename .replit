@@ -1,7 +1,8 @@
 language = "cpp"
-run = "clang++ -std=c++17 -Weverything -Wno-c++98-compat -Wno-missing-prototypes main.cpp && ./a.out"
+run = "clang++ -std=c++17 -Weverything -Wno-c++98-compat -Wno-missing-prototypes -Wno-padded main.cpp Motorcycle.cpp Car.cpp Highway.cpp HighwayPatrol.cpp SemiTruck.cpp Vehicle.cpp && ./a.out"
 hidden = ["ccls"]
 entrypoint = "main.cpp"
+compile = "make -s"
 
 [languages]
 
