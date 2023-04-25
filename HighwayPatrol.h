@@ -2,10 +2,14 @@
 
 #include "Vehicle.h"
 
+struct Highway;
 struct HighwayPatrol : Vehicle 
 {
     HighwayPatrol();
-    void scanHighway(Highway* h);
+    HighwayPatrol(const HighwayPatrol&);
+    ~HighwayPatrol() override;
+    HighwayPatrol& operator=(const HighwayPatrol&);
 
+    void scanHighway(Highway* h);
     void pullOver( Vehicle* v, bool willArrest, Highway* h );
 };

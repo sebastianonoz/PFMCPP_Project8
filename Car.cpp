@@ -2,7 +2,13 @@
 
 #include <iostream>
 
-Car::Car(const std::string& n) : Vehicle(n) {}
+Car::Car(const std::string& n) : Vehicle(n) { }
+
+Car::Car(const Car&) = default;
+
+Car::~Car() = default;
+
+Car& Car::operator=(const Car&) = default;
 
 void Car::closeWindows()
 {
